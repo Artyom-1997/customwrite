@@ -1,0 +1,17 @@
+def custom_write(file_name, strings):
+    strings_positions = {}
+
+
+with open(file_name, 'w') as file:
+    for string in strings:
+        position = file.tell()
+file.write(string + '\n')
+strings_positions[(position, file.tell())] = string
+
+return strings_positions
+
+file_name = 'output.txt'
+strings = ['Hello', 'World', 'Python']
+
+result = custom_write(file_name, strings)
+print(result)
